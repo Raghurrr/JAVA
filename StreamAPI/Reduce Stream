@@ -1,0 +1,85 @@
+package com.raghu.SteamAPI;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+
+
+public class ReduceStream
+{
+	public static void main(String[] args) 
+	{
+		
+		List<String> list1=Arrays.asList("Raghu","Vijay","kiran","Tarun","raghavarajunakka","ram");
+		list1.stream().forEach(System.out::println);
+		System.out.println();
+		
+		//Combining the list of elements
+		
+		Optional<String> text=list1.stream().reduce((ele1,ele2)->ele1.concat(ele2));
+		System.out.println(text.get());
+		
+		System.out.println();
+		
+		String text1=list1.stream().reduce("Cocatination of strings are:",(ele1,ele2)->ele1.concat(ele2));
+		System.out.println(text1);
+		
+		System.out.println();
+		
+		//return the largest string from the list
+		
+		Optional<String> largestString=list1.stream().reduce((ele1,ele2)->ele1.length() > ele2.length() ? ele1 : ele2);
+		System.out.println("Largest String is:"+largestString.get());
+        System.out.println();
+		
+		//return the smallest string from the list
+		
+		Optional<String> SmallString=list1.stream().reduce((ele1,ele2)->ele1.length() < ele2.length() ? ele1 : ele2);
+		System.out.println("Shortest String is:"+SmallString.get());
+		System.out.println();
+		
+		//return sum of elements in the list
+
+		List<Integer> list2=Arrays.asList(10,20,30,40,50,60);
+		Optional<Integer> sum=list2.stream().reduce((i,j)->i+j);
+		System.out.println(sum.get());
+		System.out.println();
+		
+		//return sum of elements in the list by adding intial value
+		
+		Integer sum2=list2.stream().reduce(10,(i,j)->i+j);
+		System.out.println(sum2);
+		System.out.println();
+		
+		//return multiplication of elements in the list
+		
+		Optional<Integer> mul=list2.stream().reduce((i,j)->i*j);
+		System.out.println(mul.get());
+		System.out.println();
+		
+		//return multiplication of elements in the list with intial value
+		
+		Integer mul2=list2.stream().reduce(10,(i,j)->i*j);
+		System.out.println(mul2);
+		System.out.println();
+		
+		//return minimum value from the list
+		
+		Optional<Integer> min=list2.stream().reduce(Integer::min);
+		System.out.println(min.get());
+		System.out.println();
+		
+		//return maximum value from the list
+		
+		Optional<Integer> max=list2.stream().reduce(Integer::max);
+		System.out.println(max.get());
+		System.out.println();
+		
+		
+		
+
+	
+
+		
+	}
+
+}
