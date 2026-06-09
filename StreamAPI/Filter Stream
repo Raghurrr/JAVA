@@ -1,0 +1,36 @@
+package com.raghu.SteamAPI;
+import java.util.stream.*;
+import java.util.*;
+
+public class Stream2 
+{
+	public static void main(String[] args) 
+	{
+		List<Object> list1=List.of(1,"a",2,"d",3,"e","f",4,5,6,"u","j");
+		list1.stream().
+		filter(obj -> obj instanceof String).
+		forEach(System.out::println);
+		
+		System.out.println();
+		
+		list1.stream().
+		filter(obj1 -> obj1 instanceof Integer).
+		forEach(obj1->System.out.print(obj1 + " "));
+		
+		System.out.println();
+		
+		list1.stream().
+		filter(obj3->obj3 instanceof Integer).
+		filter(obj3->((Integer)obj3)%2==0).
+		forEach(obj3->System.out.print(obj3+" "));
+		
+       System.out.println();
+		
+		list1.stream().
+		filter(obj3->obj3 instanceof Integer).
+		filter(obj3->((Integer)obj3)%2!=0).
+		forEach(obj3->System.out.print(obj3+" "));
+	
+	}
+
+}
