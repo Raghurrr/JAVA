@@ -1,0 +1,40 @@
+package com.raghu.SteamAPI;
+
+import java.util.List;
+
+public class StudentStream 
+{
+	public static void main(String[] args) 
+	{
+		List<Student> studentlist= List.of(
+				  new Student(101,"Raghu","core java",3500),
+				  new Student(102,"sai","oracle",4500),
+				  new Student(103,"Vijay","html",2500),
+				  new Student(104,"tharun","aws",15000),
+				  new Student(105,"kiran","devops",14500),
+				  new Student(106,"Das","core java",2500)
+				  
+				);
+		studentlist.stream().
+		forEach(student->System.out.println(student));
+		System.out.println();
+		studentlist.stream().
+		filter(student->student.getCourse().equalsIgnoreCase("core java")).
+		forEach(student->System.out.println(student));
+		System.out.println();
+		studentlist.stream().
+		filter(student->student.getCourse().equalsIgnoreCase("core java")).
+		filter(student->student.getFee()<3000).
+		forEach(System.out::print);
+		System.out.println();
+		studentlist.stream().
+	    map(obj->obj.getSname()).
+	    forEach(obj->System.out.print(obj+" "));
+		System.out.println();
+		studentlist.stream().
+		filter(obj->obj.getCourse().equalsIgnoreCase("core java")).
+	    map(obj->obj.getSname()).
+	    forEach(obj->System.out.print(obj+" "));
+	}
+
+}
